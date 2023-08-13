@@ -1,5 +1,5 @@
 import { ComponentChildren } from 'preact';
-import { IView } from '../core/view';
+import { IView, View } from '../core/view';
 
 export enum ViewType {
   YEAR = 'year',
@@ -20,7 +20,17 @@ export type AppContextType = {
   view: IView;
   titleFormat?: string;
   formattedDate: string;
+  viewType: ViewType;
   setDate: (date: Date) => void;
   setView: (view: ViewType) => void;
   setTitleFormat: (format: string) => void;
+};
+
+export type ViewProps = {
+  children: ComponentChildren;
+};
+
+export type ViewContextType = {
+  view: IView;
+  setView: (view: ViewType) => void;
 };

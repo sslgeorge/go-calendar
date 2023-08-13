@@ -1,6 +1,7 @@
 import { Toolbar } from './toolbar/toolbar';
 import GlobalStyle from './global.styles';
-import { AppProvider } from '../contexts/app-context';
+import { AppProvider } from '../contexts/app.context';
+import { ViewProvider } from '../contexts/view.context';
 
 export function GoCalendar() {
   return (

@@ -18,19 +18,15 @@ export const ViewContext = createContext<ViewContextType>(undefined);
 export function ViewProvider(props: ViewProps) {
   const { children } = props;
 
-  const { viewType } = useAppContext();
-  const [currentView, setCurrentView] = useState<IView>(viewMaps[viewType]);
-
-  const handleSetCurrentView = (vt: ViewType) => {
-    setCurrentView(viewMaps[vt]);
-  };
+  const { viewType: defaultViewType } = useAppContext();
+  const [currentView, setCurrentView] = useState<ViewType>(defaultViewType);
 
   return (
     <ViewContext.Provider
       value={{
-        viewType,
-        view: currentView,
-        setView: handleSetCurrentView,
+        viewType: currentView,
+        view: viewMaps[currentView],
+        setView: setCurrentView,
       }}
     >
       {children}

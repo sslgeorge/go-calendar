@@ -21,7 +21,6 @@ export type AppContextType = {
   formattedDate: string;
   viewType: ViewType;
   setDate: (date: Date) => void;
-  setView: (view: ViewType) => void;
   setTitleFormat: (format: string) => void;
 };
 

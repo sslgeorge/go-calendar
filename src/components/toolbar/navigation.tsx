@@ -1,9 +1,11 @@
 import { useAppContext } from '../../contexts/app.context';
+import { useView } from '../../contexts/view.context';
 import { getNextDay, getPreviousDay, getToday } from '../../core/date-helper';
 import { ButtonGroup, Button } from './toolbar.styles';
 
 export function Navigation() {
-  const { date, setDate, view } = useAppContext();
+  const { date, setDate } = useAppContext();
+  const { view } = useView();
 
   const handleToday = () => {
     setDate(getToday());
@@ -15,7 +17,7 @@ export function Navigation() {
   };
 
   const handleNext = () => {
-    const day = getPreviousDay(date);
+    const day = view.getNextDate(date);
     setDate(day);
   };
 

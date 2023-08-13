@@ -1,11 +1,11 @@
-import { createContext } from 'preact';
-import { ViewContextType, ViewProps, ViewType } from './types';
-import { useContext, useState } from 'preact/hooks';
 import { IView } from '../core/view';
+import { createContext } from 'preact';
 import { DayView } from '../core/day-view';
-import { MonthView } from '../core/month-view';
 import { WeekView } from '../core/week-view';
 import { useAppContext } from './app.context';
+import { MonthView } from '../core/month-view';
+import { useContext, useState } from 'preact/hooks';
+import { ViewContextType, ViewProps, ViewType } from './types';
 
 const viewMaps = {
   [ViewType.DAY]: new DayView(),
@@ -28,6 +28,7 @@ export function ViewProvider(props: ViewProps) {
   return (
     <ViewContext.Provider
       value={{
+        viewType,
         view: currentView,
         setView: handleSetCurrentView,
       }}

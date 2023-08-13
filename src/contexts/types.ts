@@ -12,12 +12,11 @@ export type AppProps = {
   date: Date;
   children: ComponentChildren;
   titleFormat?: string;
-  view?: ViewType;
+  viewType?: ViewType;
 };
 
 export type AppContextType = {
   date: Date;
-  view: IView;
   titleFormat?: string;
   formattedDate: string;
   viewType: ViewType;
@@ -32,5 +31,6 @@ export type ViewProps = {
 
 export type ViewContextType = {
   view: IView;
+  viewType: ViewType;
   setView: (view: ViewType) => void;
 };

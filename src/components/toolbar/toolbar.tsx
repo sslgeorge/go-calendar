@@ -1,12 +1,14 @@
 import { ComponentChildren } from 'preact';
 import { DateDisplay } from './date-display';
+import { Navigation } from './navigation';
 import {
   Button,
   ButtonGroup,
   ToolbarContainer,
   ToolbarSection,
 } from './toolbar.styles';
-import { Navigation } from './navigation';
+import { useView } from '../../contexts/view.context';
+import { ViewType } from '../../contexts/types';
 
 type ToolbarProps = {
   start?: ComponentChildren;
@@ -16,13 +18,18 @@ type ToolbarProps = {
 };
 
 export function Toolbar(props: ToolbarProps) {
-  const { date } = props;
-
+  const { setView } = useView();
   const defaultStart = [
     <ButtonGroup key="DefaultStart">
-      <Button key="Month">Month</Button>
-      <Button key="Week">Week</Button>
-      <Button key="Day">Day</Button>
+      <Button key="Month" onClick={() => setView(ViewType.MONTH)}>
+        Month
+      </Button>
+      <Button key="Week" onClick={() => setView(ViewType.WEEK)}>
+        Week
+      </Button>
+      <Button key="Day" onClick={() => setView(ViewType.DAY)}>
+        Day
+      </Button>
     </ButtonGroup>,
   ];
 

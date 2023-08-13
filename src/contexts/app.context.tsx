@@ -15,7 +15,7 @@ export function AppProvider(props: AppProps) {
     children,
     date: defaultDate = new Date(),
     titleFormat: defaultTitleFormat = 'do-MMM-yyyy',
-    view: defaultViewType = ViewType.MONTH,
+    viewType: defaultViewType = ViewType.MONTH,
   } = props;
 
   const [date, setDate] = useState(defaultDate);

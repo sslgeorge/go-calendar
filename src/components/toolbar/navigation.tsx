@@ -3,29 +3,29 @@ import { getNextDay, getPreviousDay, getToday } from '../../core/date-helper';
 import { ButtonGroup, Button } from './toolbar.styles';
 
 export function Navigation() {
-  const { date, setDate } = useAppContext();
+  const { date, setDate, view } = useAppContext();
 
   const handleToday = () => {
     setDate(getToday());
   };
 
   const handlePrevious = () => {
-    const day = getNextDay(date);
+    const day = getNextDay(date, view);
     setDate(day);
   };
 
   const handleNext = () => {
-    const day = getPreviousDay(date);
+    const day = getPreviousDay(date, view);
     setDate(day);
   };
 
   return (
     <ButtonGroup>
-      <Button key="Today" onClick={handleToday}>
-        Today
-      </Button>
       <Button key="Previous" onClick={handlePrevious}>
         Previous
+      </Button>
+      <Button key="Today" onClick={handleToday}>
+        Today
       </Button>
       <Button key="Next" onClick={handleNext}>
         Next

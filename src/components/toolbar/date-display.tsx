@@ -1,9 +1,10 @@
 import { useAppContext } from '../../contexts/app-context';
+import { formatDisplay } from '../../core/date-helper';
 
 type DateDisplayProps = {};
 
 export function DateDisplay(props: DateDisplayProps) {
-  const { date } = useAppContext();
+  const { formattedDate } = useAppContext();
 
-  return <span>{date.toLocaleDateString()}</span>;
+  return <span>{formattedDate}</span>;
 }

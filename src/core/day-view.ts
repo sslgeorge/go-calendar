@@ -2,7 +2,7 @@ import { IView } from './view';
 import add from 'date-fns/add';
 import startOfDay from 'date-fns/startOfDay';
 import sub from 'date-fns/sub';
-import { DayGrid } from '../components/grids/day-grid';
+import { DayGrid } from '../components/grids/day-grid/day-grid';
 
 export class DayView implements IView {
   getComponent() {

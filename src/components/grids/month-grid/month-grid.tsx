@@ -1,7 +1,14 @@
+import { GridHeader } from '../header';
+
 export function MonthGrid() {
-  return <>Month</>;
+  return (
+    <>
+      <GridHeader />
+      Month
+    </>
+  );
 }
 
 function MonthDayGrid() {
-  return null;
+  return <></>;
 }

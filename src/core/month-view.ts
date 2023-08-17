@@ -3,7 +3,7 @@ import add from 'date-fns/add';
 import startOfMonth from 'date-fns/startOfMonth';
 import sub from 'date-fns/sub';
 import { FunctionComponent } from 'preact';
-import { MonthGrid } from '../components/grids/month-grid';
+import { MonthGrid } from '../components/grids/month-grid/month-grid';
 
 export class MonthView implements IView {
   getComponent(): FunctionComponent {

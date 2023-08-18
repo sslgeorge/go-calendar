@@ -18,4 +18,7 @@ export class WeekView implements IView {
   getTodayDate(): Date {
     return startOfWeek(new Date());
   }
+  getDayNames() {
+    return [];
+  }
 }

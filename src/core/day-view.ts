@@ -22,4 +22,8 @@ export class DayView implements IView {
   getTodayDate(): Date {
     return startOfDay(new Date());
   }
+
+  getDayNames() {
+    return [];
+  }
 }

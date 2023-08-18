@@ -1,3 +1,3 @@
-export function GridHeader() {
-  return null;
+export function Header() {
+  return <>Hello world</>;
 }

@@ -1,10 +1,10 @@
 import { useView } from '../../contexts/view.context';
+import { Header } from './header';
 
 export function Grid() {
-  const { view } = useView();
-  const { getComponent } = view;
-
-  const Component = getComponent();
-
-  return <Component />;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }

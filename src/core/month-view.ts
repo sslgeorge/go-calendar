@@ -18,4 +18,7 @@ export class MonthView implements IView {
   getTodayDate(): Date {
     return startOfMonth(new Date());
   }
+  getDayNames() {
+    return [];
+  }
 }

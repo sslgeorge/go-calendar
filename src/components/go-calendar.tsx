@@ -6,7 +6,7 @@ import { Grid } from './grids/grid';
 
 export function GoCalendar() {
   return (
-    <AppProvider date={new Date()}>
+    <AppProvider date={new Date().toISOString()}>
       <GlobalStyle />
       <Toolbar date={new Date()} />
       <Grid />

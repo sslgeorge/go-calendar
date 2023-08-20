@@ -1,10 +1,23 @@
 import { createContext } from 'preact';
-import { useContext, useState } from 'preact/hooks';
-import { AppContextType, AppProps, ViewType } from './types';
-import { formatDisplay } from '../core/date-helper';
+import { useContext } from 'preact/hooks';
+import { AppProps, ViewType } from './types';
 import { ViewProvider } from './view.context';
+import { ISODateValue } from '../core/iso-date-value';
 
-const AppContext = createContext<Partial<AppContextType>>({});
+type AppContextType = {
+  isoDateValue: ISODateValue;
+  view?: ViewType;
+  header?: {
+    format: string;
+  };
+};
+
+const AppContext = createContext<AppContextType>({
+  isoDateValue: new ISODateValue(new Date().toISOString()),
+  header: {
+    format: 'do-MMM-yyyy',
+  },
+});
 
 export function useAppContext() {
   return useContext(AppContext);
@@ -13,23 +26,21 @@ export function useAppContext() {
 export function AppProvider(props: AppProps) {
   const {
     children,
-    date: defaultDate = new Date(),
-    titleFormat: defaultTitleFormat = 'do-MMM-yyyy',
-    viewType: defaultViewType = ViewType.MONTH,
+    date: defaultDateString,
+    header = {
+      format: 'do-MMM-yyyy',
+    },
+    view = ViewType.MONTH,
   } = props;
 
-  const [date, setDate] = useState(defaultDate);
-  const [titleFormat, setTitleFormat] = useState(defaultTitleFormat);
+  const isoDateValue = new ISODateValue(defaultDateString);
 
   return (
     <AppContext.Provider
       value={{
-        date,
-        setDate,
-        setTitleFormat,
-        titleFormat,
-        viewType: defaultViewType,
-        formattedDate: formatDisplay(date, titleFormat),
+        isoDateValue,
+        header,
+        view,
       }}
     >
       <ViewProvider>{children}</ViewProvider>

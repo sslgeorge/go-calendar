@@ -1,11 +1,9 @@
-import { useAppContext } from '../../contexts/app.context';
 import { getNextDay, getPreviousDay, getToday } from '../../core/date-helper';
 import { useView } from '../../hooks/use-view';
 import { ButtonGroup, Button } from './toolbar.styles';
 
 export function Navigation() {
-  const { date, setDate } = useAppContext();
-  const { view } = useView();
+  const { date, view, setDate } = useView();
 
   const handleToday = () => {
     setDate(getToday());

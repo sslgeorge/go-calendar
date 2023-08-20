@@ -9,27 +9,17 @@ export enum ViewType {
 }
 
 export type AppProps = {
-  date: Date;
+  date: string;
+  view?: ViewType;
+  header?: {
+    format: string;
+  };
+  footer?: {
+    format: string;
+  };
   children: ComponentChildren;
-  titleFormat?: string;
-  viewType?: ViewType;
-};
-
-export type AppContextType = {
-  date: Date;
-  titleFormat?: string;
-  formattedDate: string;
-  viewType: ViewType;
-  setDate: (date: Date) => void;
-  setTitleFormat: (format: string) => void;
 };
 
 export type ViewProps = {
   children: ComponentChildren;
-};
-
-export type ViewContextType = {
-  view: IView;
-  viewType: ViewType;
-  setView: (view: ViewType) => void;
 };

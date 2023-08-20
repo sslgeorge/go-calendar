@@ -1,4 +1,4 @@
-import { ISODateValue } from './value-objects/iso-date-value';
+import { ISODateValue } from './iso-date-value';
 
 export class Chrono {
   private readonly date: Date;

@@ -11,6 +11,5 @@ export class ISODateValue {
 
   public toString(): string {
     return this.date;
-    //           ^?
   }
 }

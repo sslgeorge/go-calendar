@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@js-temporal/polyfill": "^0.4.4",
     "@preact/signals": "^1.2.1",
     "date-fns": "^2.30.0",
     "preact": "^10.13.1",

@@ -7,8 +7,8 @@ import {
   ToolbarContainer,
   ToolbarSection,
 } from './toolbar.styles';
-import { useView } from '../../contexts/view.context';
 import { ViewType } from '../../contexts/types';
+import { useView } from '../../hooks/use-view';
 
 type ToolbarProps = {
   start?: ComponentChildren;

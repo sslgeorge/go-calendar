@@ -1,6 +1,6 @@
 import { useAppContext } from '../../contexts/app.context';
-import { useView } from '../../contexts/view.context';
 import { getNextDay, getPreviousDay, getToday } from '../../core/date-helper';
+import { useView } from '../../hooks/use-view';
 import { ButtonGroup, Button } from './toolbar.styles';
 
 export function Navigation() {
